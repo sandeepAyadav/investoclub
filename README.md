@@ -42,4 +42,4 @@ Make sure you have **Node.js** (v18 or higher) and **npm** installed on your mac
 
 1. **Clone the repository:**
    ```bash
-   git clone <YOUR_GITHUB_REPOSITORY_URL>
+   git clone https://github.com/sandeepAyadav/investoclub
