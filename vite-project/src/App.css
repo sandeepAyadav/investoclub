@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  overflow-x: hidden;
+}
+
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  max-width: 100vw;
+}
+
+
+.sidebar {
+  width: 280px;
+  background: white;
+  padding: 2rem;
+  border-right: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.sidebar h2 { margin-bottom: 1.5rem; font-size: 1.25rem; }
+.summary-card {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.summary-card h4 { font-size: 0.875rem; color: #6b7280; }
+.summary-card p { font-size: 1.5rem; font-weight: bold; margin-top: 0.25rem; }
+
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.header { margin-bottom: 2rem; }
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+input, select, textarea {
+  padding: 0.5rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus { border-color: #3b82f6; }
+
+.search-input { flex: 1; min-width: 200px; }
+
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+button:hover { opacity: 0.8; }
+.btn-primary { background: #3b82f6; color: white; }
+.btn-secondary { background: #e5e7eb; color: #374151; }
+.btn-edit { background: #fef3c7; color: #92400e; margin-right: 0.5rem; }
+.btn-delete { background: #fee2e2; color: #991b1b; }
+
+
+.task-list { display: grid; gap: 1rem; }
+.task-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+.task-desc { color: #6b7280; font-size: 0.875rem; margin-bottom: 1rem; }
+.task-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.priority-high { background: #fee2e2; color: #991b1b; }
+.priority-medium { background: #fef3c7; color: #92400e; }
+.priority-low { background: #d1fae5; color: #065f46; }
+
+.status-select { padding: 0.25rem 0.5rem; font-size: 0.75rem; border-radius: 4px; }
+.status-pending { background: #fef3c7; border-color: #fcd34d; }
+.status-in-progress { background: #e0e7ff; border-color: #a5b4fc; }
+.status-completed { background: #d1fae5; border-color: #6ee7b7; }
+
+.modal-overlay {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  padding: 1rem;
+  z-index: 50;
+}
+.modal-content {
+  background: white; padding: 2rem; border-radius: 12px;
+  width: 100%; max-width: 500px;
+}
+.form-group { margin-bottom: 1rem; display: flex; flex-direction: column; }
+.form-group label { font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem; }
+.form-row { display: flex; gap: 1rem; }
+.form-row .form-group { flex: 1; }
+.error-input { border-color: #ef4444; }
+.error-text { color: #ef4444; font-size: 0.75rem; margin-top: 0.25rem; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; }
+
+
+.empty-state {
+  text-align: center; padding: 4rem 2rem;
+  background: white; border-radius: 8px; border: 2px dashed #e5e7eb;
+}
+.empty-state h3 { color: #374151; margin-bottom: 0.5rem; }
+.empty-state p { color: #6b7280; }
+
+
+@media (max-width: 768px) {
+  .app-container { flex-direction: column; }
+  .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e5e7eb; }
+  .summary-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .summary-card { margin-bottom: 0; }
+  .form-row { flex-direction: column; }
+}
